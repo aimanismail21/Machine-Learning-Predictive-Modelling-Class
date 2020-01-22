@@ -5,6 +5,7 @@ Lab 1 COMP 3948 Predictive Modelling
 @date January 8, 2020
 """
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -48,7 +49,7 @@ def exercise_five():
 def exercise_six():
     # Create data set.
     data_set = {'Market': ['S&P 500', 'Dow', 'Nikkei'],
-               'Last': [2932.05, 26485.01, 21087.16]}
+                'Last': [2932.05, 26485.01, 21087.16]}
 
     # Create dataframe with data set and named columns.
     df = pd.DataFrame(data_set, columns=['Market', 'Last'])
@@ -73,7 +74,7 @@ def exercise_six():
 def exercise_seven():
     # Create data set.
     data_set = {'Market': ['S&P 500', 'Dow', 'Nikkei'],
-               'Last': [2932.05, 26485.01, 21087.16]}
+                'Last': [2932.05, 26485.01, 21087.16]}
 
     # Create dataframe with data set and named columns.
     df = pd.DataFrame(data_set, columns=['Market', 'Last'])
@@ -92,7 +93,7 @@ def exercise_seven():
 
 def exercise_eight():
     data_set = {'Market': ['S&P 500', 'Dow', 'Nikkei'],
-               'Last': [2932.05, 26485.01, 21087.16]}
+                'Last': [2932.05, 26485.01, 21087.16]}
 
     # Create dataframe with data set and named columns.
     df = pd.DataFrame(data_set, columns=['Market', 'Last'])
@@ -111,7 +112,7 @@ def exercise_eight():
 def exercise_nine():
     # Create data set.
     data_set = {'Market': ['S&P 500', 'Dow', 'Nikkei'],
-               'Last': [2932.05, 26485.01, 21087.16]}
+                'Last': [2932.05, 26485.01, 21087.16]}
 
     # Create data frame with data set and named columns.
     df1 = pd.DataFrame(data_set, columns=['Market', 'Last'])
@@ -164,6 +165,7 @@ def exercise_eleven():
     # print(df.describe())
     print(df.describe().round(2))
 
+
 def exercise_twelve():
     path = "./bodyfat.txt"
     df = pd.read_table(path, skiprows=1,
@@ -176,6 +178,7 @@ def exercise_twelve():
     pd.set_option('display.width', 1000)
     df2 = df[['Height', 'Waist', 'Weight', 'Pct.BF']]
     print(df2)
+
 
 def exercise_thirteen():
     path = "./bodyfat.txt"
@@ -200,9 +203,11 @@ def exercise_fourteen():
     df = pd.read_table(path, skiprows=1,
                        delim_whitespace=True,
                        names=(
-                       'MomAge', 'DadAge', 'MomEduc', 'MomMarital', 'numlive',
-                       "dobmm", 'gestation', 'sex', 'weight', 'prenatalstart',
-                       'orig.id', 'preemie'))
+                           'MomAge', 'DadAge', 'MomEduc', 'MomMarital',
+                           'numlive',
+                           "dobmm", 'gestation', 'sex', 'weight',
+                           'prenatalstart',
+                           'orig.id', 'preemie'))
     # Show all columns.
     pd.set_option('display.max_columns', None)
 
@@ -234,27 +239,77 @@ def exercise_fourteen():
     # print("\nFREQUENCY SORTED by MOTHER AGE", end='')
     # print(df['MomAge'].value_counts().sort_index(), end='')
 
-
     print("\nFREQUENCY COUNT OF UNIQUE VALUES")
     print(df['MomEduc'].value_counts(normalize=True).sort_index(
         ascending=False), end='')
 
 
+def exercise_fifteen():
+    # Import data into a DataFrame.
+    path = "babysamp-98.txt"
+    df = pd.read_csv(path, skiprows=1,
+                     sep='\t',
+                     names=(
+                         'MomAge', 'DadAge', 'MomEduc', 'MomMarital',
+                         'numlive',
+                         "dobmm", 'gestation', 'sex', 'weight',
+                         'prenatalstart',
+                         'orig.id', 'preemie'))
+
+    # Rename the columns so they are more reader-friendly.
+    df = df.rename({'MomAge': 'Mom Age', 'DadAge': 'Dad Age',
+                    'MomEduc': 'Mom Edu', 'weight': 'Weight'},
+                   axis=1)  # new method
+    # Show all columns.
+    pd.set_option('display.max_columns', None)
+
+    # Increase number of columns that display on one line.
+    pd.set_option('display.width', 1000)
+    print("Count:", df['Mom Age'].count())
+    print("Min:", df['Mom Age'].min())
+    print("Max:", df['Mom Age'].max())
+    print("Mean:", df['Mom Age'].mean())
+    print("Median:", df['Mom Age'].median())
+    print("Standard Deviation:", df['Mom Age'].std())
+
+
+def exercise_sixteen():
+    # The data file path and file name need to be configured.
+    # PATH = "/Users/pm/Desktop/DayDocs/2019_2020/PythonForDataAnalytics/workingData/"
+    CSV_DATA = "phone_data.csv"
+
+    # Note this has a comma separator.
+    df = pd.read_csv(CSV_DATA, skiprows=1, encoding="ISO-8859-1",
+                     sep=',',
+                     names=(
+                         'index', 'date', 'duration', 'item', 'month',
+                         'network',
+                         'network_type'))
+
+    # Get count of items per month.
+    dfStats = df.groupby('network')['index'] \
+        .count().reset_index().rename(columns={'index': '# Calls'})
+
+    # Get duration mean for network groups and convert to DataFrame.
+    dfDurationMean = df.groupby('network')['duration'] \
+        .mean().reset_index().rename(columns={'duration': 'Duration '
+                                                          'Mean'})
+
+    # Get duration max for network groups and convert to DataFrame.
+    dfDurationMax = df.groupby('network')['duration'] \
+        .max().reset_index().rename(columns={'duration': 'Duration Max'})
+
+    # Append duration mean to stats matrix.
+    dfStats['Duration Mean'] = dfDurationMean['Duration Mean']
+
+    # Append duration max to stats matrix.
+    dfStats['Duration Max'] = dfDurationMax['Duration Max']
+    print(dfStats)
+
 
 def main():
-    # exercise_one()
-    # exercise_two()
-    # exercise_three()
-    # exercise_four()
-    # exercise_five()
-    # exercise_six()
-    # exercise_seven()
-    # exercise_eight()
-    # exercise_nine()
-    # exercise_ten()
-    # exercise_eleven()
-    # exercise_twelve()
-    # exercise_thirteen()
-    exercise_fourteen()
+    exercise_sixteen()
+
+
 if __name__ == '__main__':
     main()
