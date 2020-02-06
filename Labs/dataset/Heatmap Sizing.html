@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div>
+<div>import seaborn as sns</div>
+<br />
+<div># You likely will want a larger heatmap for this plot.</div>
+<div># Here is how to do it.&nbsp;</div>
+<div># subplots returns a tuple. fig can be used to create a png file if needed.</div>
+<div># ax enables separate assignments of properties.</div>
+<div>fig, ax = plt.subplots(figsize=(10,10))</div>
+<div>ax.set_title('Housing Set')</div>
+<br />
+<div>sns.heatmap(corr,</div>
+<div>xticklabels=corr.columns,</div>
+<div>yticklabels=corr.columns, ax=ax)</div>
+<br />
+<div>plt.show()</div>
+</div>
+</body>
+</html>
