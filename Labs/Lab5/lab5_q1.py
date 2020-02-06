@@ -32,7 +32,6 @@ X = dataset[
      'Avg. Area Number of Rooms',
      'Avg. Area Number of Bedrooms',
      'Area Population',
-     'Price',
      'Address'
      ]].values
 
@@ -41,7 +40,7 @@ X = dataset[
 # which helps to avoid over-fitting.
 X = sm.add_constant(X)
 
-y = dataset['quality'].values
+y = dataset['Price'].values
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,
                                                     random_state=0)
