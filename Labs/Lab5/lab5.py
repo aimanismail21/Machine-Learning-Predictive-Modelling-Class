@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy                 as np
 import pandas as pd
 import statsmodels.api       as sm
+import seaborn as sns
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from statsmodels.graphics.gofplots import qqplot
@@ -50,12 +51,12 @@ print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, pre
 
 # -----------------------------------------------
 # # Compute the correlation matrix
-# corr = dataset.corr()
-# # plot the heatmap
-# sns.heatmap(corr,
-#             xticklabels=corr.columns,
-#             yticklabels=corr.columns)
-# plt.show()
+corr = dataset.corr()
+# plot the heatmap
+sns.heatmap(corr,
+            xticklabels=corr.columns,
+            yticklabels=corr.columns)
+plt.show()
 
 
 # Validation Plots
@@ -121,6 +122,6 @@ def test_equation(avg_area_income, avg_area_house_age, avg_area_number_rooms, ar
     price = -2.647e+06 + 21.6681 * avg_area_income + 1.658e+05 * avg_area_house_age + 1.216e+05 * (
         avg_area_number_rooms) + 15.2785 * area_population
     return price
-print(test_equation(60000,10,3, 100000)) = 2203736.0
-print(test_equation(30000,30,2, 100000)) = 4748093.0
-print(test_equation(10000,50,2, 100000)) = 7630731.0
+# print(test_equation(60000,10,3, 100000)) = 2203736.0
+# print(test_equation(30000,30,2, 100000)) = 4748093.0
+# print(test_equation(10000,50,2, 100000)) = 7630731.0

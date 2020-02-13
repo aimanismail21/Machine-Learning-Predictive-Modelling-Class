@@ -15,7 +15,7 @@ y_predicted = [0.136751684,
                0.12737127
                ]
 plt.plot(x_init, y_predicted, color='blue', label='y=0.938041*x - 0..04148')
-
+plt.show()
 # Show average
 x3 = [0, 0.50]
 y3 = [0.195714286, 0.195714286]
