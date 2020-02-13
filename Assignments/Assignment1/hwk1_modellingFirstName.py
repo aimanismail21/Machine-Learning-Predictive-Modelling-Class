@@ -185,6 +185,13 @@ def main():
     print(df.describe().transpose())
 
 
+    # todo Code to export results to CSV
+    PATH = "Assignment1/"
+    OUT_FILE = "predictions_aiman.csv"  # Do not change.
+    OUT_PATH = PATH + OUT_FILE  # Do not change.
+    df.to_csv(r''+ OUT_PATH)
+
+
 if __name__ == '__main__':
     main()
 
