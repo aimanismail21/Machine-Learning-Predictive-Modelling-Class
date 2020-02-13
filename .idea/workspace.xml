@@ -60,6 +60,9 @@
       <module name="3948_A01052971_Predictive_Modelling" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab3" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -120,6 +123,9 @@
       <module name="3948_A01052971_Predictive_Modelling" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab4" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -139,6 +145,9 @@
       <module name="3948_A01052971_Predictive_Modelling" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab5" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -212,7 +221,8 @@
       <workItem from="1579844958671" duration="4205000" />
       <workItem from="1580954586606" duration="19188000" />
       <workItem from="1581041262394" duration="264000" />
-      <workItem from="1581563711084" duration="15821000" />
+      <workItem from="1581563711084" duration="22336000" />
+      <workItem from="1581589244245" duration="3104000" />
     </task>
     <task id="LOCAL-00001" summary="lab 4">
       <created>1579850474110</created>
@@ -256,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581582226455</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="A1">
+      <created>1581582725227</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1581582725227</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,10 +290,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1650" y="451" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581564218688" />
-    <state x="1304" y="302" key="CommitChangelistDialog2" timestamp="1581582224512">
+    <state x="1304" y="302" key="CommitChangelistDialog2" timestamp="1581582723292">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1304" y="302" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581582224512" />
+    <state x="1304" y="302" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581582723292" />
     <state x="3864" y="224" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1040@2560.0.2560.1040" timestamp="1580973254415" />
     <state width="2517" height="492" key="GridCell.Tab.0.bottom" timestamp="1580979511131">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -331,10 +348,10 @@
     </state>
     <state x="1302" y="440" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581582273730" />
     <state x="3862" y="327" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1040@2560.0.2560.1040" timestamp="1580973259867" />
-    <state x="976" y="525" key="com.intellij.ide.util.TipDialog" timestamp="1581041523264">
+    <state x="976" y="525" key="com.intellij.ide.util.TipDialog" timestamp="1581589244306">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="976" y="525" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581041523264" />
+    <state x="976" y="525" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581589244306" />
     <state x="1519" y="624" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581574048187">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
