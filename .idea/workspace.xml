@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a7f6ece-b2d6-4c1c-8f9e-ae9d6493cb4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assignments/Assignment1/hwk1_modellingFirstName.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignments/Assignment1/Homework1_3948.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Assignments/Assignment1/Homework1_3948.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignments/Assignment1/IndividualLab6_3948.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignments/Assignment1/Table of Contents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignments/Assignment1/hw1_housingV2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assignments/Assignment1/hw1_housingV2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab4/lab4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab4/lab4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab5/lab5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab5/lab5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignments/Assignment1/hwk1_modellingFirstName.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignments/Assignment1/hwk1_modellingFirstName.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +212,7 @@
       <workItem from="1579844958671" duration="4205000" />
       <workItem from="1580954586606" duration="19188000" />
       <workItem from="1581041262394" duration="264000" />
-      <workItem from="1581563711084" duration="14240000" />
+      <workItem from="1581563711084" duration="15279000" />
     </task>
     <task id="LOCAL-00001" summary="lab 4">
       <created>1579850474110</created>
@@ -248,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580984543161</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="A1">
+      <created>1581581149725</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1581581149725</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,17 +258,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lab 4" />
     <MESSAGE value="q" />
-    <option name="LAST_COMMIT_MESSAGE" value="q" />
+    <MESSAGE value="A1" />
+    <option name="LAST_COMMIT_MESSAGE" value="A1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1650" y="451" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581564218688">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1650" y="451" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581564218688" />
-    <state x="1304" y="302" key="CommitChangelistDialog2" timestamp="1580984542778">
+    <state x="1304" y="302" key="CommitChangelistDialog2" timestamp="1581581147423">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1304" y="302" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1580984542778" />
+    <state x="1304" y="302" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581581147423" />
     <state x="3864" y="224" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1040@2560.0.2560.1040" timestamp="1580973254415" />
     <state width="2517" height="492" key="GridCell.Tab.0.bottom" timestamp="1580979511131">
       <screen x="0" y="0" width="2560" height="1400" />
