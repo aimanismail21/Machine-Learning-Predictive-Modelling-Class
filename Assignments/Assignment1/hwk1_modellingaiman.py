@@ -9,6 +9,11 @@ from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from statsmodels.graphics.gofplots import qqplot
 
+"""
+Pat, please change the path of files in the model_one, model_two, model_three and model_four functions.
+
+You will need to change the path of files in the main for output as well.
+"""
 
 def model_one():
     PATH = "hw1_housingV2.csv"
@@ -24,58 +29,49 @@ def model_one():
                        encoding="ISO-8859-1",
                        sep=",",
                        names=(
-                       'SubClass', 'Zoning', 'LotFrontage', 'LotArea', 'Street', 'Alley', 'LotShape', 'LandContour',
-                       'Utilities', 'LotConfig', 'LandSlope', 'Neighborhood', 'Condition1', 'Condition2', 'BldgType',
-                       'HouseStyle', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodel', 'RoofStyle',
-                       'RoofMat', 'Exterior1', 'Exterior2', 'MasVnrType', 'MasVnrArea', 'ExterQual', 'ExterCond',
-                       'Foundation', 'BsmtQual', 'BsmtCond', 'BsmtExposure', 'BsmtFinType1', 'BsmtFinType2',
-                       'Heating', 'HeatingQC', 'CentralAir', 'Electrical', 'FirstFlrSF', 'SecondFlrSF',
-                       'LowQualFinSF', 'GrLivArea', 'BsmtFullBath', 'BsmtHalfBath', 'FullBath', 'HalfBath',
-                       'BedroomAbvGr', 'KitchenAbvGr', 'KitchenQual', 'TotRmsAbvGrd', 'Functional', 'Fireplaces',
-                       'FireplaceQu', 'GarageType', 'GarageYrBlt', 'GarageFinish', 'GarageCars', 'GarageQual',
-                       'GarageCond', 'PavedDrive', 'WoodDeckSF', 'OpenPorchSF', 'EnclosedPorch', 'ThreeSsnPorch',
-                       'ScreenPorch', 'PoolArea', 'PoolQC', 'Fence', 'MiscFeature', 'MiscVal', 'MoSold', 'YrSold',
-                       'SaleType', 'SaleCondition', 'SalePrice',
+                           'SubClass', 'Zoning', 'LotFrontage', 'LotArea', 'Street', 'Alley', 'LotShape', 'LandContour',
+                           'Utilities', 'LotConfig', 'LandSlope', 'Neighborhood', 'Condition1', 'Condition2',
+                           'BldgType',
+                           'HouseStyle', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodel', 'RoofStyle',
+                           'RoofMat', 'Exterior1', 'Exterior2', 'MasVnrType', 'MasVnrArea', 'ExterQual', 'ExterCond',
+                           'Foundation', 'BsmtQual', 'BsmtCond', 'BsmtExposure', 'BsmtFinType1', 'BsmtFinType2',
+                           'Heating', 'HeatingQC', 'CentralAir', 'Electrical', 'FirstFlrSF', 'SecondFlrSF',
+                           'LowQualFinSF', 'GrLivArea', 'BsmtFullBath', 'BsmtHalfBath', 'FullBath', 'HalfBath',
+                           'BedroomAbvGr', 'KitchenAbvGr', 'KitchenQual', 'TotRmsAbvGrd', 'Functional', 'Fireplaces',
+                           'FireplaceQu', 'GarageType', 'GarageYrBlt', 'GarageFinish', 'GarageCars', 'GarageQual',
+                           'GarageCond', 'PavedDrive', 'WoodDeckSF', 'OpenPorchSF', 'EnclosedPorch', 'ThreeSsnPorch',
+                           'ScreenPorch', 'PoolArea', 'PoolQC', 'Fence', 'MiscFeature', 'MiscVal', 'MoSold', 'YrSold',
+                           'SaleType', 'SaleCondition', 'SalePrice',
                        )
                        )
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', 1000)
 
-    # print(df.describe().round(4))
-
-    # Binning
-    # print(df['YearRemodel'].min())
-    # print(df['YearRemodel'].max())
-    # print(df['YearRemodel'].std())
     df['YearRemodel_bin'] = pd.cut(x=df['YearRemodel'], bins=[1950, 1960, 1970, 1980, 1990, 2000, 2010])
     temp_df = df['YearRemodel_bin']
     dummy_temp_df = pd.get_dummies(temp_df, columns=['YearRemodel_bin'])
     df = pd.concat((df, dummy_temp_df), axis=1)
-    print(df)
 
     # Impute data
     # todo Can probably refine by checking outliers in the three categories, if outliers exist, using mean would not be ideal.
     df = convertNAcellsToNum('OverallQual', df, "mean")  # tried mode, mean
     df = convertNAcellsToNum('YearBuilt', df, "mean")
     df = convertNAcellsToNum("GrLivArea", df, "mean")
-    # OQ, MEAN : YB, MEAN : GrLivArea: Mode RMSE 35782.99734322801 , R2     0.760
 
     # Dummy Variables
     columns_to_dummy = ['Zoning', 'LotShape', 'Neighborhood', 'HouseStyle', 'ExterQual', 'Foundation', 'HeatingQC',
                         'KitchenQual', 'GarageType', 'PavedDrive', 'SaleType']
-    tempDf = df[columns_to_dummy]
+
     df = pd.get_dummies(df, columns=columns_to_dummy)
 
-    # dummies to ignore: Utilities, LotConfig, Condition1, Condition2, BldgType, SaleCondition
+
     # -----------------------------------------------
     # # Compute the correlation matrix
     corr = df.corr()
     # Heatmap
     plt.subplots(figsize=(20, 15))  # Expand the size of heatmap for better clarity
     sns.heatmap(corr)
-    # sns.heatmap(corr,
-    #             xticklabels=corr.columns,
-    #             yticklabels=corr.columns)
+
     plt.show()
 
     # Set the predictor values
@@ -125,6 +121,7 @@ def model_one():
 
     return X_values, Y_value, df
 
+
 def model_two():
     PATH = "hw1_housingV2.csv"
     IN_FILE = "hw1_housingV2.csv"  # Do not change.
@@ -139,65 +136,49 @@ def model_two():
                        encoding="ISO-8859-1",
                        sep=",",
                        names=(
-                       'SubClass', 'Zoning', 'LotFrontage', 'LotArea', 'Street', 'Alley', 'LotShape', 'LandContour',
-                       'Utilities', 'LotConfig', 'LandSlope', 'Neighborhood', 'Condition1', 'Condition2', 'BldgType',
-                       'HouseStyle', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodel', 'RoofStyle',
-                       'RoofMat', 'Exterior1', 'Exterior2', 'MasVnrType', 'MasVnrArea', 'ExterQual', 'ExterCond',
-                       'Foundation', 'BsmtQual', 'BsmtCond', 'BsmtExposure', 'BsmtFinType1', 'BsmtFinType2',
-                       'Heating', 'HeatingQC', 'CentralAir', 'Electrical', 'FirstFlrSF', 'SecondFlrSF',
-                       'LowQualFinSF', 'GrLivArea', 'BsmtFullBath', 'BsmtHalfBath', 'FullBath', 'HalfBath',
-                       'BedroomAbvGr', 'KitchenAbvGr', 'KitchenQual', 'TotRmsAbvGrd', 'Functional', 'Fireplaces',
-                       'FireplaceQu', 'GarageType', 'GarageYrBlt', 'GarageFinish', 'GarageCars', 'GarageQual',
-                       'GarageCond', 'PavedDrive', 'WoodDeckSF', 'OpenPorchSF', 'EnclosedPorch', 'ThreeSsnPorch',
-                       'ScreenPorch', 'PoolArea', 'PoolQC', 'Fence', 'MiscFeature', 'MiscVal', 'MoSold', 'YrSold',
-                       'SaleType', 'SaleCondition', 'SalePrice',
+                           'SubClass', 'Zoning', 'LotFrontage', 'LotArea', 'Street', 'Alley', 'LotShape', 'LandContour',
+                           'Utilities', 'LotConfig', 'LandSlope', 'Neighborhood', 'Condition1', 'Condition2',
+                           'BldgType',
+                           'HouseStyle', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodel', 'RoofStyle',
+                           'RoofMat', 'Exterior1', 'Exterior2', 'MasVnrType', 'MasVnrArea', 'ExterQual', 'ExterCond',
+                           'Foundation', 'BsmtQual', 'BsmtCond', 'BsmtExposure', 'BsmtFinType1', 'BsmtFinType2',
+                           'Heating', 'HeatingQC', 'CentralAir', 'Electrical', 'FirstFlrSF', 'SecondFlrSF',
+                           'LowQualFinSF', 'GrLivArea', 'BsmtFullBath', 'BsmtHalfBath', 'FullBath', 'HalfBath',
+                           'BedroomAbvGr', 'KitchenAbvGr', 'KitchenQual', 'TotRmsAbvGrd', 'Functional', 'Fireplaces',
+                           'FireplaceQu', 'GarageType', 'GarageYrBlt', 'GarageFinish', 'GarageCars', 'GarageQual',
+                           'GarageCond', 'PavedDrive', 'WoodDeckSF', 'OpenPorchSF', 'EnclosedPorch', 'ThreeSsnPorch',
+                           'ScreenPorch', 'PoolArea', 'PoolQC', 'Fence', 'MiscFeature', 'MiscVal', 'MoSold', 'YrSold',
+                           'SaleType', 'SaleCondition', 'SalePrice',
                        )
                        )
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', 1000)
 
-    # print(df.describe().round(4))
 
-    # Binning
-    # print(df['YearRemodel'].min())
-    # print(df['YearRemodel'].max())
-    # print(df['YearRemodel'].std())
-    df['YearRemodel_bin'] = pd.cut(x=df['YearRemodel'], bins=[1950, 1955, 1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010])
+    df['YearRemodel_bin'] = pd.cut(x=df['YearRemodel'],
+                                   bins=[1950, 1955, 1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010])
     temp_df = df['YearRemodel_bin']
     dummy_temp_df = pd.get_dummies(temp_df, columns=['YearRemodel_bin'])
     df = pd.concat((df, dummy_temp_df), axis=1)
 
-    # Impute data
-    # todo Can probably refine by checking outliers in the three categories, if outliers exist, using mean would not be ideal.
+
     df = convertNAcellsToNum('OverallQual', df, "mean")  # tried mode, mean
     df = convertNAcellsToNum('YearBuilt', df, "mean")
     df = convertNAcellsToNum("GrLivArea", df, "mean")
-    # OQ, MEAN : YB, MEAN : GrLivArea: Mode RMSE 35782.99734322801 , R2     0.760
 
-    # Dummy Variables
-    columns_to_dummy = ['LotShape', 'Neighborhood','ExterQual', 'Foundation', 'HeatingQC',
+    columns_to_dummy = ['LotShape', 'Neighborhood', 'ExterQual', 'Foundation', 'HeatingQC',
                         'KitchenQual', 'GarageType', 'PavedDrive', 'SaleType']
     tempDf = df[columns_to_dummy]
     df = pd.get_dummies(df, columns=columns_to_dummy)
-    # -----------------------------------------------
-    # # Compute the correlation matrix
+
     corr = df.corr()
     # Heatmap
     plt.subplots(figsize=(20, 15))  # Expand the size of heatmap for better clarity
     sns.heatmap(corr)
-    # sns.heatmap(corr,
-    #             xticklabels=corr.columns,
-    #             yticklabels=corr.columns)
+
     plt.show()
 
-    # 'HalfBath','OpenPorchSF','m_OverallQual','m_YearBuilt','imp_OverallQual',  'imp_GrLivArea',
-#'HeatingQC_TA','ExterQual_TA','PavedDrive_Y','SaleType_WD','m_GrLivArea',
-#'GarageType_Detchd','KitchenQual_TA','Zoning_RL''HouseStyle_2Story','Neighborhood_NAmes',
-#'TotRmsAbvGrd',
 
-
-
-    # Set the predictor values
     X_values = df[['LotArea',
                    'YearRemodel',
                    'FirstFlrSF',
@@ -225,6 +206,8 @@ def model_two():
     Y_value = df['SalePrice'].values  # This is the target or predicted value Y
 
     return X_values, Y_value, df
+
+
 def model_three():
     """
     Remove very low p scores
@@ -261,12 +244,6 @@ def model_three():
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', 1000)
 
-    # print(df.describe().round(4))
-
-    # Binning
-    # print(df['YearRemodel'].min())
-    # print(df['YearRemodel'].max())
-    # print(df['YearRemodel'].std())
     df['YearRemodel_bin'] = pd.cut(x=df['YearRemodel'],
                                    bins=[1950, 1955, 1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010])
     temp_df = df['YearRemodel_bin']
@@ -274,35 +251,23 @@ def model_three():
     df = pd.concat((df, dummy_temp_df), axis=1)
 
     # Impute data
-    # todo Can probably refine by checking outliers in the three categories, if outliers exist, using mean would not be ideal.
+
     df = convertNAcellsToNum('OverallQual', df, "mean")  # tried mode, mean
     df = convertNAcellsToNum('YearBuilt', df, "mean")
     df = convertNAcellsToNum("GrLivArea", df, "mean")
-    # OQ, MEAN : YB, MEAN : GrLivArea: Mode RMSE 35782.99734322801 , R2     0.760
+
 
     # Dummy Variables
     columns_to_dummy = ['Neighborhood', 'Foundation', 'ExterQual', 'PavedDrive', 'KitchenQual']
     tempDf = df[columns_to_dummy]
     df = pd.get_dummies(df, columns=columns_to_dummy)
-    # -----------------------------------------------
-    # # Compute the correlation matrix
+
     corr = df.corr()
     # Heatmap
     plt.subplots(figsize=(20, 15))  # Expand the size of heatmap for better clarity
     sns.heatmap(corr)
-    # sns.heatmap(corr,
-    #             xticklabels=corr.columns,
-    #             yticklabels=corr.columns)
-    plt.show()
 
-    # High P >|t| scores:
-    # 'HalfBath','OpenPorchSF','m_OverallQual','m_YearBuilt','imp_OverallQual',  'imp_GrLivArea',
-    # 'HeatingQC_TA','ExterQual_TA','PavedDrive_Y','SaleType_WD','m_GrLivArea',
-    # 'GarageType_Detchd','KitchenQual_TA','Zoning_RL''HouseStyle_2Story','Neighborhood_NAmes',
-    # 'TotRmsAbvGrd',
-    # Low P >|t| scores where 0.05 > p > 0:
-    #'LotShape_IR1','HeatingQC_Ex',
-    # Set the predictor values
+    plt.show()
 
 
 
@@ -328,11 +293,10 @@ def model_three():
     Y_value = df['SalePrice'].values  # This is the target or predicted value Y
 
     return X_values, Y_value, df
+
+
 def model_four():
-    """
-    Remove very low p scores
-    :return:
-    """
+
     PATH = "hw1_housingV2.csv"
     IN_FILE = "hw1_housingV2.csv"  # Do not change.
     FULL_PATH = PATH + IN_FILE  # Do not change.
@@ -364,55 +328,37 @@ def model_four():
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', 1000)
 
-    # print(df.describe().round(4))
-
     # Binning
-    # print(df['YearRemodel'].min())
-    # print(df['YearRemodel'].max())
-    # print(df['YearRemodel'].std())
     df['YearRemodel_bin'] = pd.cut(x=df['YearRemodel'],
-                                   bins=[1950, 1960, 1970,1980,1990,2000,2010])
+                                   bins=[1950, 1960, 1970, 1980, 1990, 2000, 2010])
     temp_df = df['YearRemodel_bin']
     dummy_temp_df = pd.get_dummies(temp_df, columns=['YearRemodel_bin'])
     df = pd.concat((df, dummy_temp_df), axis=1)
 
     # Impute data
-    # todo Can probably refine by checking outliers in the three categories, if outliers exist, using mean would not be ideal.
-    df = convertNAcellsToNum('OverallQual', df, "median")  # tried mode, mean
+    df = convertNAcellsToNum('OverallQual', df, "median")
     df = convertNAcellsToNum('YearBuilt', df, "median")
     df = convertNAcellsToNum("GrLivArea", df, "mean")
-    # OQ, MEAN : YB, MEAN : GrLivArea: Mode RMSE 35782.99734322801 , R2     0.760
+
+    corr = df.corr()
+    # Heatmap before Dummy Variables
+    plt.subplots(figsize=(20, 15))  # Expand the size of heatmap for better clarity
+    sns.heatmap(corr)
 
     # Dummy Variables
     columns_to_dummy = ['Neighborhood', 'ExterQual', 'KitchenQual']
     tempDf = df[columns_to_dummy]
     dummy_df = pd.get_dummies(tempDf, columns=columns_to_dummy)
     df = pd.concat(([df, dummy_df]), axis=1)
-    # -----------------------------------------------
-    # # Compute the correlation matrix
+
     corr = df.corr()
     # Heatmap
     plt.subplots(figsize=(20, 15))  # Expand the size of heatmap for better clarity
     sns.heatmap(corr)
-    # sns.heatmap(corr,
-    #             xticklabels=corr.columns,
-    #             yticklabels=corr.columns)
+
     plt.show()
 
-    # High P >|t| scores:
-    # 'HalfBath','OpenPorchSF','m_OverallQual','m_YearBuilt','imp_OverallQual',  'imp_GrLivArea',
-    # 'HeatingQC_TA','ExterQual_TA','PavedDrive_Y','SaleType_WD','m_GrLivArea',
-    # 'GarageType_Detchd','KitchenQual_TA','Zoning_RL''HouseStyle_2Story','Neighborhood_NAmes',
-    # 'TotRmsAbvGrd',
-    # Low P >|t| scores where 0.05 > p > 0:
-    #'LotShape_IR1','HeatingQC_Ex',
-    # Set the predictor values
-
-
     X_values = df[['LotArea',
-                   'imp_OverallQual',
-                   'imp_YearBuilt',
-                   'imp_GrLivArea',
                    'FirstFlrSF',
                    'SecondFlrSF',
                    'Fireplaces',
@@ -427,7 +373,8 @@ def model_four():
     Y_value = df['SalePrice'].values  # This is the target or predicted value Y
 
     return X_values, Y_value, df
-    pass
+
+
 def run_regression(X_values, Y_value, df):
     # Training Set - train_size 80/20 (as requested by Pat)
     X_training_set, X_test, Y_training_set, Y_test = train_test_split(X_values, Y_value, train_size=0.80,
@@ -483,6 +430,7 @@ def convertNAcellsToNum(colName, df, measureType):
     df[imputedColName] = imputedColumn
     return df
 
+
 def plotPredictionVsActual(plt, title, y_test, predictions):
     plt.scatter(y_test, predictions)
     plt.legend()
@@ -525,43 +473,41 @@ def drawValidationPlots(title, bins, y_test, predictions):
     plt.show()
 
 
-from statsmodels.graphics.gofplots import qqplot
+
+
 def plotQQ(plt, title, y_test, predictions):
-    residuals         = y_test - predictions
+    residuals = y_test - predictions
     qqplot(residuals)
 
 
-
-
-
-
 def main():
+    #Model 1 Uncomment to USE
     # print("-----------------------------------------------------------------------\nModel 1")
     # X_values, Y_value, df = model_one()
-    # model, y_prediction, Y_test = run_regression(X_values=X_values, Y_value=Y_value, df=df)
+    # model, y_prediction, Y_test, X_test = run_regression(X_values=X_values, Y_value=Y_value, df=df)
     # print(model.summary())
     # print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(Y_test, y_prediction)))
-    # print(df.head().transpose())
-    # print(df.describe().transpose())
 
+    #Model 2 Uncomment to USE
     # print("----------------------------------------------------------------\nModel 2")
     # X_values, Y_value, df = model_two()
-    # model, y_prediction, Y_test = run_regression(X_values=X_values, Y_value=Y_value, df=df)
+    # model, y_prediction, Y_test, X_test = run_regression(X_values=X_values, Y_value=Y_value, df=df)
     # print(model.summary())
     # print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(Y_test, y_prediction)))
 
-    # print("----------------------------------------------------------------\nModel 3")
-    # X_values, Y_value, df = model_three()
-    # model, y_prediction, Y_test = run_regression(X_values=X_values, Y_value=Y_value, df=df)
-    # print(model.summary())
-    # print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(Y_test, y_prediction)))
-
-    print("----------------------------------------------------------------\nModel 4")
-    X_values, Y_value, df = model_four()
+    # Model 3 Uncomment to USE
+    print("----------------------------------------------------------------\nModel 3")
+    X_values, Y_value, df = model_three()
     model, y_prediction, Y_test, X_test = run_regression(X_values=X_values, Y_value=Y_value, df=df)
-
     print(model.summary())
     print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(Y_test, y_prediction)))
+
+    # Model 4 Uncomment to USE
+    # print("----------------------------------------------------------------\nModel 4")
+    # X_values, Y_value, df = model_four()
+    # model, y_prediction, Y_test, X_test = run_regression(X_values=X_values, Y_value=Y_value, df=df)
+    # print(model.summary())
+    # print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(Y_test, y_prediction)))
 
     # Draw Validation Plots
     BINS = 15
@@ -570,6 +516,12 @@ def main():
     plotQQ(plt, TITLE, Y_test, y_prediction)
     plt.title("Quantile-Quantial Residuals - " + TITLE)
     plt.show()
+
+    # Y-Predicated (SalePrice Prediction) Output
+    sales_prediction = {'PredictedSalePrice': y_prediction}
+    output_file = pd.DataFrame(sales_prediction, columns=['PredictedSalePrice'])
+    output_file.describe().transpose()
+
     # todo create new df for csv output
     # todo Code to export results to CSV, need to just provide predicted results
     PATH = "hw1_housingV2.csv"
@@ -579,12 +531,9 @@ def main():
     OUT_FILE = "predictions_yourFirstName.csv"  # Do not change.
     IN_PATH = PATH + MYSTERY_FILE  # Do not change.
     OUT_PATH = PATH + OUT_FILE  # Do not change.
-    df.to_csv(r'C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Assignments\Assignment1\predictions_aiman.csv')
+    output_file.to_csv(
+        r'C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Assignments\Assignment1\predictions_aiman.csv', index=None)
 
 
 if __name__ == '__main__':
     main()
-
-# Present X, Y Test and Error Sum of Squares
-# data = {"X_test": X_test, "Y_test": Y_test, "Y_predicted":y_prediction}
-# df_result = pd.DataFrame(data, columns=['X_test', 'Y_test', 'Y_predicted'])
