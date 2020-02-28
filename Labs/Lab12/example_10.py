@@ -17,6 +17,7 @@ print(c.dot(a))
 
 x_result = flower[0] * matrix[0][0] + flower[1] * matrix[1][0] + flower[2] *\
            matrix[2][0] + flower[3] * matrix[3][0]
+
 y_result = flower[0] * matrix[0][1] + flower[1] * matrix[1][1] + flower[2] * \
            matrix[2][1] + flower[3] \
            * matrix[3][1]
