@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a7f6ece-b2d6-4c1c-8f9e-ae9d6493cb4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Labs/Lab12/ParticipationLabDay14_Scree_Plots_Variance.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Labs/Lab12/participationlab.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Labs/Lab12/peach_spectra_brixvalues.csv" afterDir="false" />
+    <list default="true" id="3a7f6ece-b2d6-4c1c-8f9e-ae9d6493cb4f" name="Default Changelist" comment="lab12">
+      <change afterPath="$PROJECT_DIR$/Labs/Lab12/Hitters.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab12/IndividualLabDay13.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab12/exercise13.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab12/exercise15.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab12/exercise17.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab13/IndividualLabDay15.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab13/exercise1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab13/kaisermeyerolkin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab13/participation_lab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab13/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/dataset/Factor-Hair-Revised.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/dataset/Hitters.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/dataset/USA_HousingMysterySet.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/dataset/carInsurance.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/dataset/peach_spectra_brixvalues.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/dataset/usCityData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab12/example_10.py" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab12/example_10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/dataset/Table of Contents.html" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/dataset/Table of Contents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/dataset/USA_Housing.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/dataset/USA_Housing.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,43 +62,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Labs/Lab12" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Labs/dataset" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Labs\Lab12" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Labs\dataset" />
       <recent name="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Labs\Lab12" />
       <recent name="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Assignments\Assignment1" />
       <recent name="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Labs\Lab8" />
-      <recent name="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Labs\dataset" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Labs\Lab13" />
+      <recent name="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Labs" />
+      <recent name="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Labs\Lab12" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.participationlab">
-    <configuration name="Lab3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="3948_A01052971_Predictive_Modelling" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab3" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Labs/Lab3/Lab3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.kaisermeyerolkin">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="3948_A01052971_Predictive_Modelling" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -107,83 +101,108 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="hwk1_modellingaiman" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="example1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="3948_A01052971_Predictive_Modelling" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Assignments/Assignment1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\aiman\PycharmProjects\3948_A01052971_Predictive_Modelling\Assignments\Assignment1\hwk1_modellingaiman.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="lab4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="3948_A01052971_Predictive_Modelling" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab4" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Labs/Lab4/lab4.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="lab5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="3948_A01052971_Predictive_Modelling" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab5" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Labs/Lab5/lab5.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="participationlab" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="3948_A01052971_Predictive_Modelling" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab12" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Labs/Lab12/participationlab.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Labs/Lab12/example1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="exercise1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="3948_A01052971_Predictive_Modelling" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab13" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Labs/Lab13/exercise1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="exercise17" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="3948_A01052971_Predictive_Modelling" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab12" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Labs/Lab12/exercise17.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="kaisermeyerolkin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="3948_A01052971_Predictive_Modelling" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab13" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Labs/Lab13/kaisermeyerolkin.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="participation_lab" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="3948_A01052971_Predictive_Modelling" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Labs/Lab13" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Labs/Lab13/participation_lab.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -194,11 +213,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.participationlab" />
-        <item itemvalue="Python.hwk1_modellingaiman" />
-        <item itemvalue="Python.lab5" />
-        <item itemvalue="Python.lab4" />
-        <item itemvalue="Python.Lab3" />
+        <item itemvalue="Python.kaisermeyerolkin" />
+        <item itemvalue="Python.participation_lab" />
+        <item itemvalue="Python.exercise17" />
+        <item itemvalue="Python.exercise1" />
+        <item itemvalue="Python.example1" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +251,13 @@
       <workItem from="1581589244245" duration="3104000" />
       <workItem from="1581665353666" duration="9342000" />
       <workItem from="1582828174925" duration="21000" />
-      <workItem from="1582835339585" duration="5583000" />
+      <workItem from="1582835339585" duration="5609000" />
+      <workItem from="1583255104675" duration="11000" />
+      <workItem from="1583302496131" duration="10443000" />
+      <workItem from="1583350615900" duration="6024000" />
+      <workItem from="1583432832526" duration="52000" />
+      <workItem from="1583444362143" duration="4980000" />
+      <workItem from="1583450304662" duration="499000" />
     </task>
     <task id="LOCAL-00001" summary="lab 4">
       <created>1579850474110</created>
@@ -290,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581678859083</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="lab12">
+      <created>1582849020630</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1582849020630</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,16 +332,22 @@
     <MESSAGE value="lab 4" />
     <MESSAGE value="q" />
     <MESSAGE value="A1" />
-    <option name="LAST_COMMIT_MESSAGE" value="A1" />
+    <MESSAGE value="lab12" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab12" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="675" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583447373982">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="675" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583447373982" />
     <state x="1650" y="451" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581564218688">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1650" y="451" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581564218688" />
-    <state x="1304" y="302" key="CommitChangelistDialog2" timestamp="1581678858707">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="978" y="224" key="CommitChangelistDialog2" timestamp="1583302579356">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="978" y="224" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583302579356" />
     <state x="1304" y="302" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581678858707" />
     <state x="3864" y="224" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1040@2560.0.2560.1040" timestamp="1580973254415" />
     <state width="2517" height="492" key="GridCell.Tab.0.bottom" timestamp="1580979511131">
@@ -360,20 +398,21 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1289" y="444" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1580956086346" />
-    <state x="977" y="327" key="Vcs.Push.Dialog.v2" timestamp="1582750479167">
+    <state x="977" y="327" key="Vcs.Push.Dialog.v2" timestamp="1584668976654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="977" y="327" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582750479167" />
+    <state x="977" y="327" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584668976654" />
     <state x="1302" y="440" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581678846671" />
     <state x="3862" y="327" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1040@2560.0.2560.1040" timestamp="1580973259867" />
-    <state x="732" y="390" key="com.intellij.ide.util.TipDialog" timestamp="1582828191961">
+    <state x="732" y="390" key="com.intellij.ide.util.TipDialog" timestamp="1583450305104">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="732" y="390" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582828191961" />
+    <state x="732" y="390" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583450305104" />
     <state x="976" y="525" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581665388807" />
-    <state x="1519" y="624" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581574048187">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="1139" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584668968798">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="1139" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584668968798" />
     <state x="1519" y="624" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/2560.0.2560.1040@0.0.2560.1400" timestamp="1581574048187" />
     <state x="2731" y="52" width="1279" height="868" key="dock-window-1" timestamp="1581565625736">
       <screen x="2560" y="0" width="2560" height="1040" />
