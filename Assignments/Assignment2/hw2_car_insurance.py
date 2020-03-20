@@ -4,11 +4,8 @@ import pandas as pd
 from sklearn import metrics
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
-from sklearn.metrics import average_precision_score
-from sklearn.metrics import classification_report
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
-from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
 from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split
@@ -17,10 +14,11 @@ from sklearn.preprocessing import StandardScaler
 
 
 def main():
-    model_one(1)
+    model_1 = create_model(1, 20)
+    model_2 = create_model(2, 10)
+    model_3 = create_model(3, 3)
 
-
-def model_one(number):
+def create_model(number, features):
     print(f"\nExecuting Model {number}")
     PATH = "carInsurance.csv"
     df = pd.read_csv(PATH,
@@ -190,11 +188,11 @@ def model_one(number):
         plt.xlabel("Car Age")
         plt.ylabel('Occurences')
         plt.show()
-        # Distribution is not normal. There are roughly 2450 cars with an age of 1.
-        # The second highest occurring age is 8 at around 650.
-        # The occurences of age 1 are not likely to be erroneous.
-        # Imputation with car age should be done with mean or median to find
-        # the better imputation method.
+        # Distribution is not normal. There are roughly 2450 cars with an
+        # age of 1. The second highest occurring age is 8 at around 650. The
+        # occurences of age 1 are not likely to be erroneous. Imputation
+        # with car age should be done with mean or median to find the better
+        # imputation method.
 
     # Treat outlier in CAR_AGE column
     df.CAR_AGE = df.CAR_AGE.mask(df.CAR_AGE.lt(0), 0)
@@ -228,15 +226,6 @@ def model_one(number):
     # Get dummies
     dummyDf = pd.get_dummies(tempDf, columns=['AGE_bin'])
     df = pd.concat(([df, dummyDf]), axis=1)  # Join dummy df with original
-
-    # Heatmap of Correlations of DF
-    # corr = df.corr()
-    # plt.subplots(figsize=(20, 15))
-    # sns.heatmap(corr)
-    # plt.show()
-
-    # Separate into x and y values.
-
     predictors_test = ['BLUEBOOK',
                        'OLDCLAIM',
                        'CLM_FREQ',
@@ -289,8 +278,10 @@ def model_one(number):
     X_scaled = sc_x.fit_transform(X)
 
     print("Please wait for automated feature selection...")
+    n_features = features
+    print(f"Selecting {n_features} features")
     logreg = LogisticRegression(max_iter=200)
-    rfe = RFE(logreg, 20)  # Select top 20 features.
+    rfe = RFE(logreg, n_features)  # Select top 20 features.
     rfe = rfe.fit(X_scaled, y.values.ravel())
     print("Feature selection is complete.")
 
@@ -312,7 +303,7 @@ def model_one(number):
     selectedPredictorNames = getSelectedColumns(rfe.ranking_)
 
     # Show selected names from RFE.
-    print("\n*** Selected names: ")
+    print("\n*** Selected Features:")
     for i in range(0, len(selectedPredictorNames)):
         print(selectedPredictorNames[i])
 
@@ -320,9 +311,22 @@ def model_one(number):
     # Separate into x and y values.
     count = 0
     kfold = KFold(3, True, 1)
+    # Separate into x and y values.
+    X = df[selectedPredictorNames]
+    y = df[['CLAIM_FLAG']]
+
+    # Show chi-square scores for each feature.
+    # There is 1 degree freedom since 1 predictor during feature evaluation.
+    # Generally, >=3.8 is good)
+
+    test = SelectKBest(score_func=chi2, k=n_features)
+    XScaled = MinMaxScaler().fit_transform(X)
+    chiScores = test.fit(XScaled, y)  # Summarize scores
+    np.set_printoptions(precision=3)
+
+    # Search here for insignificant features.
+    print("\nPredictor Chi-Square Scores: " + str(chiScores.scores_))
     for train, test in kfold.split(df[selectedPredictorNames]):
-        X = df[selectedPredictorNames]
-        y = df[['CLAIM_FLAG']]
         X_train = X.iloc[train, :]  # Gets all rows with train indexes.
         y_train = y.iloc[train, :]
         X_test = X.iloc[test, :]
@@ -337,20 +341,6 @@ def model_one(number):
 
         y_pred = logisticModel.predict(X_test)
         y_prob = logisticModel.predict_proba(X_test)
-
-
-
-        # Show chi-square scores for each feature.
-        # There is 1 degree freedom since 1 predictor during feature evaluation.
-        # Generally, >=3.8 is good)
-
-        test = SelectKBest(score_func=chi2, k=20)
-        XScaled = MinMaxScaler().fit_transform(X)
-        chiScores = test.fit(XScaled, y)  # Summarize scores
-        np.set_printoptions(precision=3)
-
-        # Search here for insignificant features.
-        print("\nPredictor Chi-Square Scores: " + str(chiScores.scores_))
 
         # Split data.
         X_train, X_test, y_train, y_test = train_test_split(
@@ -406,31 +396,30 @@ def model_one(number):
         print("\nRMSE: " + str(RMSE))
         print("\nr2_score", r2_score(y_test, pred))
 
-        # ROC CURVE CHART, and CUMUL GAINS CHART
-        def create_roc_curve_chart_and_cumul_chart():
-            # calculate roc curves chart
-            CUT_OFF = 0.50
-            lr_fpr, lr_tpr, _ = roc_curve(y_test, y_prob[:, 1])
-            plt.plot(lr_fpr, lr_tpr, marker='.', label='Logistic')
-            plt.plot([0, 1], [0, 1], '--', label=f"CUT-OFF{CUT_OFF}")
-            plt.xlabel('False Positive Rate')
-            plt.ylabel('True Positive Rate')
-            plt.title("ROC CURVE")
-            plt.legend()
-            plt.show()
-            # cumulative gains chart
-            clf = LogisticRegression(
-                random_state=0, multi_class='multinomial', solver='newton-cg')
-
-            clf.fit(X_train, y_train)
-            predicted_probas = clf.predict_proba(X_test)
-            y_pred = clf.predict(X_test);
-            import scikitplot as skplt
-            skplt.metrics.plot_cumulative_gain(y_test, predicted_probas)
-            skplt.metrics.plot_lift_curve(y_test, predicted_probas)
-            plt.show()
-        y_pred = create_roc_curve_chart_and_cumul_chart()
-        print(f"\nEnd of Model {number}")
+    # ROC CURVE CHART, and CUMUL GAINS CHART
+    def create_roc_curve_chart_and_cumul_chart():
+        # calculate roc curves chart
+        CUT_OFF = 0.50
+        lr_fpr, lr_tpr, _ = roc_curve(y_test, y_prob[:, 1])
+        plt.plot(lr_fpr, lr_tpr, marker='.', label='Logistic')
+        plt.plot([0, 1], [0, 1], '--', label=f"CUT-OFF{CUT_OFF}")
+        plt.xlabel('False Positive Rate')
+        plt.ylabel('True Positive Rate')
+        plt.title("ROC CURVE")
+        plt.legend()
+        plt.show()
+        # cumulative gains chart
+        clf = LogisticRegression(
+            random_state=0, multi_class='multinomial', solver='newton-cg')
+        clf.fit(X_train, y_train)
+        predicted_probas = clf.predict_proba(X_test)
+        y_pred = clf.predict(X_test);
+        import scikitplot as skplt
+        skplt.metrics.plot_cumulative_gain(y_test, predicted_probas)
+        skplt.metrics.plot_lift_curve(y_test, predicted_probas)
+        plt.show()
+    create_roc_curve_chart_and_cumul_chart()
+    print(f"\nEnd of Model {number}")
 
 
 if __name__ == '__main__':
