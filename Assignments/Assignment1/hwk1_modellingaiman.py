@@ -46,7 +46,7 @@ def model_one():
                        )
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', 1000)
-
+    # Binning
     df['YearRemodel_bin'] = pd.cut(x=df['YearRemodel'], bins=[1950, 1960, 1970, 1980, 1990, 2000, 2010])
     temp_df = df['YearRemodel_bin']
     dummy_temp_df = pd.get_dummies(temp_df, columns=['YearRemodel_bin'])
